@@ -14,3 +14,7 @@ The functions used in the algorithm are:
 •	Creates a screen with 2d - grid points and lines for each step, when we start the algorithm or whenever a line has to be deleted.
 
 
+**The following is a visual representation of one of the incremental steps in the algorithm . An output screen, along with the 2d-grid shows the relevant computations.**
+
+![Visualization using Pygame](Implementation.png)
+
