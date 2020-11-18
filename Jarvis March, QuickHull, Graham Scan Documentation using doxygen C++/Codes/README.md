@@ -30,8 +30,30 @@ Checks if the given 2 points p1 and p2 are equal or not.
 Finds the cross-product of the points p1, p2, p3 .i.e. Finds out whether p1, p2, p3 make a left turn, or a right turn, or are collinear.  
 
 The Pseudocode of the algorithm works as follows:  
-![JM Algo](Jarvis_March_Pseudocode.png) 
+![JM Algo](Jarvis_March_Pseudocode.png)  
+  
 
-
+## Graham Scan Algorithm :  
+Graham’s Scan algorithm will find the corner points of the convex hull. In this algorithm, at first, the lowest point is chosen. That point is the starting point of the convex hull. Remaining n-1 vertices are sorted based on the anti-clockwise direction from the start point. If two or more points are forming the same angle, then remove all points of the same angle except the farthest point from start.  
+  
+  
+From the remaining points, push them into the stack. And remove items from stack one by one, when orientation is not anti-clockwise for stack top point, second top point and newly selected point points[i], after checking, insert points[i] into the stack.
+  
+  
+The functions used in the algorithm are :  
+* ##### `static int alignment(Point a, Point b, Point c)` :  
+Used to test the alignment of three points a,b,c.  
+* ##### `bool operator < (Point other)` :  
+An overloaded < operator for comparing the ordering of two points.  
+* ##### `std::stack<Point> grahamScan(std::vector<Point> &v) ` :  
+Calculates the convex hull of a list of points in 2D. Takes in a list of points and returns a stack of points in the convex hull in clockwise order from the top.  
+* ##### `void printGrahamScan(std::stack<Point> &s)` :  
+Utility function to display the convex hull.
+* ##### `static double squareDistance(Point a, Point b)` :  
+Finds the squared distance between points p1 and p2.  
+  
+  
+The Pseudocode of the algorithm works as follows:  
+![JM Algo](Graham_Scan_Pseudocode.png)  
 
 
