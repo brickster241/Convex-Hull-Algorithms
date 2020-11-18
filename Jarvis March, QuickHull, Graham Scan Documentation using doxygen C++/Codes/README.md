@@ -11,7 +11,7 @@
 
 Starting from a leftmost point of the data set, we keep the points in the convex hull by anti-clockwise rotation. From a current point, we can choose the next point by checking the orientations of those points from the current point. When the angle is largest, the point is chosen. After completing all points, when the next point is the start point, stop the algorithm.  
   
-The functions used in the algorithm are :  
+**The functions used in the algorithm are :  
 * ##### `Point_2D(double xi,double yi)` :  
 Define a 2D-Point using the given input Coordinates.  
 * ##### `vector<Point_2D> Jarvis_March_Convex_Hull(vector<Point_2D> P)` :  
@@ -40,7 +40,7 @@ Graham’s Scan algorithm will find the corner points of the convex hull. In thi
 From the remaining points, push them into the stack. And remove items from stack one by one, when orientation is not anti-clockwise for stack top point, second top point and newly selected point points[i], after checking, insert points[i] into the stack.
   
   
-The functions used in the algorithm are :  
+**The functions used in the algorithm are :  
 * ##### `static int alignment(Point a, Point b, Point c)` :  
 Used to test the alignment of three points a,b,c.  
 * ##### `bool operator < (Point other)` :  
@@ -55,5 +55,37 @@ Finds the squared distance between points p1 and p2.
   
 The Pseudocode of the algorithm works as follows:  
 ![JM Algo](Graham_Scan_Pseudocode.png)  
+  
+  
+## Quick Hull Algorithm :  
+Quickhull is a method of computing the convex hull of a finite set of points in the plane. It uses a divide and conquer approach similar to that of quicksort, from which its name derives. Its average case complexity is considered to be Θ(n * log(n)), whereas in the worst case it takes O(n^2). Quick Hull was published by C. Barber and D. Dobkin in 1995.  
+  
+The key idea behind QuickHull is that: 
+* When a convex Hull H of a set of points S in known, then the convex Hull H1 of the set of points S1, that is S + a new point P, is computed as follows:
+
+* Let P1 and P2 be the closest point to P in the left and right section respectively.  
+* Remove line P1 to P2 from convex Hull H.  
+* Add lines P1 to P and P to P2 to modified convex hull H to get new convex Hull H1.  
+
+  
+
+**The functions used in the algorithm are :  
+* ##### `int QuickHull::findSide(vertex p,vertex x,vertex y)` :  
+findSide is used to find the side of a point p with respect to a line segment xy by calculating the determinant of p,x,y.  
+* ##### `void QuickHull::quickhull(vertex x,vertex y,int side)` :  
+Quickhull is a recursive function used to find the points of the convex hull .  
+* ##### `double QuickHull::findDistance(vertex p,vertex x,vertex y)` :  
+findDistance is used to use the y=mx+c equation of line xy and find distance of point p by substituting it in the equation.
+* ##### `void QuickHull::printPoints()` :  
+function to print the set of points.  
+* ##### `void QuickHull::findConvexHull()` :  
+function to first call the function `quickhull`.  
+  
+
+The Pseudocode of the algorithm works as follows:    
+![JM Algo](QuickHull_Pseudocode.png)  
+  
+
+
 
 
